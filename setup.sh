@@ -1,10 +1,10 @@
 #!/bin/bash
 #nothing
 
-apt install golang-go
+apt install golang-go -y 
 apt-get update
-apt-get install sublist3r
-apt-get install subfinder
+apt-get install sublist3r -y
+apt-get install subfinder -y
 wget https://github.com/Findomain/Findomain/releases/download/8.1.1/findomain-linux.zip
 mkdir findomain
 mv finddomain-linux.zip findomain/
