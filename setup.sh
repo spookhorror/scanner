@@ -1,8 +1,9 @@
 #!/bin/bash
 #nothing
-
-apt install golang-go -y 
+ 
 apt-get update
+apt install golang-go -y
+apt install jq -y
 apt-get install sublist3r -y
 apt-get install subfinder -y
 wget https://github.com/Findomain/Findomain/releases/download/8.1.1/findomain-linux.zip
