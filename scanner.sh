@@ -18,12 +18,7 @@ sublister(){
     clear
     cat  output/$target/subdomain_2.txt | tee -a output/$target/$target-subdomain.txt
     rm output/$target/subdomain_2.txt
-    curl -s "https://dns.bufferover.run/dns?q=.$target" | jq -r .FDNS_A[] | cut -d',' -f2 | sort -u | tee -a output/$target/$target-subdomain.txt
-    clear
-    curl -s "https://crt.sh/?q=%25.$target&output=json" | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | tee -a output/$target/$target-subdomain.txt
-    clear
-    curl -s "https://certspotter.com/api/v1/issuances?domain=$target&include_subdomains=true&expand=dns_names" | jq .[].dns_names | grep -Po "(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sort -u  | tee -a output/$target/$target-subdomain.txt
-    clear
+   
     amass enum -passive -d $target -src |  awk '{print$2}' | tee -a output/$target/$target-subdomain.txt
     clear
     findomain --quiet --target $target | tee -a output/$target/$target-subdomain.txt
